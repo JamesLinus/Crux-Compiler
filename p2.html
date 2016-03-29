@@ -1,0 +1,1533 @@
+
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40" xml:lang="en">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=unicode">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<link rel=File-List href="index_files/filelist.xml">
+<link rel=Edit-Time-Data href="index_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>CRUX Compiler P2</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>harrygxu</o:Author>
+  <o:LastAuthor>harrygxu</o:LastAuthor>
+  <o:Revision>20</o:Revision>
+  <o:TotalTime>636</o:TotalTime>
+  <o:Created>2014-04-08T22:11:00Z</o:Created>
+  <o:LastSaved>2016-01-18T21:50:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>1854</o:Words>
+  <o:Characters>10569</o:Characters>
+  <o:Lines>88</o:Lines>
+  <o:Paragraphs>24</o:Paragraphs>
+  <o:CharactersWithSpaces>12399</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="index_files/themedata.thmx">
+<link rel=colorSchemeMapping href="index_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>80</w:Zoom>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SplitPgBreakAndParaMark/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all href="index_files/course.css">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-536870145 64767 1 0 415 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+h1
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 2 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#0000A0;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#004000;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+code
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{mso-style-priority:99;
+	mso-style-link:"HTML Preformatted Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:11.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+tt
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-ansi-font-size:11.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:24.0pt;
+	mso-bidi-font-size:24.0pt;
+	mso-font-kerning:18.0pt;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 2";
+	mso-ansi-font-size:18.0pt;
+	mso-bidi-font-size:18.0pt;
+	font-weight:bold;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"HTML Preformatted";
+	font-family:Consolas;
+	mso-ascii-font-family:Consolas;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Consolas;
+	mso-bidi-font-family:Consolas;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-ascii-font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+p.title, li.title, div.title
+	{mso-style-name:title;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.subtitle, li.subtitle, div.subtitle
+	{mso-style-name:subtitle;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.center, li.center, div.center
+	{mso-style-name:center;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.title1, li.title1, div.title1
+	{mso-style-name:title1;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:navy;
+	font-weight:bold;
+	font-style:italic;}
+p.subtitle1, li.subtitle1, div.subtitle1
+	{mso-style-name:subtitle1;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:navy;
+	font-weight:bold;}
+p.center1, li.center1, div.center1
+	{mso-style-name:center1;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	padding:24.0pt 24.0pt 24.0pt 24.0pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:483278472;
+	mso-list-template-ids:1706610862;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:868563914;
+	mso-list-template-ids:-174940620;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2
+	{mso-list-id:1362054319;
+	mso-list-template-ids:1075329544;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l2:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3
+	{mso-list-id:1551573111;
+	mso-list-template-ids:1894406232;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l3:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#D0D0FF" lang=EN-US link="#0000A0" vlink="#004000"
+style='tab-interval:.5in'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;text-align:center'><span style='font-size:9.0pt;font-family:"Arial","sans-serif";
+color:#000040'>
+This webpage was adapted from <a href="http://www.ics.uci.edu/~thornton/">Alex
+Thornton</a>’s offering of CS 141</span><span style='font-size:11.0pt;
+font-family:"Arial","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:black'><o:p></o:p></span></p>
+
+<div style='margin-top:5.0pt;margin-bottom:5.0pt'>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:11.0pt;font-family:"Arial","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:black'>
+
+<hr size=1 width="100%" noshade style='color:#000040' align=center>
+
+</span></div>
+
+</div>
+
+<div>
+
+<p class=MsoNormal align=center style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;text-align:center'><b><span style='font-size:18.0pt;font-family:"Arial","sans-serif";
+color:#000040'><span class=GramE></span> 
+Project #2: Recursive Descent<o:p></o:p></span></b><BR>
+<center><a href="http://davidpynes.github.io/Crux-Compiler/p3.html">P3:SymbolTable</a>  |  
+<a href="http://davidpynes.github.io/Crux-Compiler/index.html"> Index </a></p></center>
+
+</div>
+
+<div>
+
+<div style='margin-top:3.75pt;margin-bottom:3.75pt'>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:11.0pt;font-family:"Arial","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:black'>
+
+<hr size=1 width="100%" noshade style='color:#000040' align=center>
+
+</span></div>
+
+</div>
+
+</div>
+
+<div>
+
+<div style='margin-top:5.0pt;margin-bottom:5.0pt'>
+
+<h1>Introduction</h1>
+
+<p>Now that we have completed writing a Scanner that tokenizes input Crux
+source files, we can proceed with implementing the next part of the compiler: a
+Parser. Because our <code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>crux.Parser</span></code>
+will ultimately do more than task, we split the implementation into smaller
+pieces. </p>
+
+<p>The grammar given in the <a href="./index.html">Crux Specification</a>
+describes the appearance of sentences within the Crux language. Because Crux is
+a computer language, some (but not all) of these sentences can be translated
+into valid Crux programs. In this project, we shall implement a <a
+href="http://en.wikipedia.org/wiki/Recursive_descent_parser">recursive descent
+parser</a> for the Crux language. The parser will act as a recognizer, allowing
+us to reject sentences which have syntax errors (invalid or misplaced tokens),
+because they could not possibly be Crux source code. </p>
+
+
+<h1>What's Recursive Descent?</h1>
+
+<p>The Crux language language has been purposefully designed as <span
+class=GramE>LL(</span>1) for simplicity of parsing. It can be parsed from <b>L</b>eft
+to right, constructing a <span class=GramE><b>L</b>eftmost</span> derivation
+with only <b>1</b> token of lookahead. Remarkably, this feature allows us to
+directly map each rule in Crux's left-factored grammer with a clause of a
+recursive procedure. During execution of the parse, the Parser will start at
+the top of the parse tree (rule <code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>program</span></code>)
+and recursively call itself (<code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>program</span></code>
+calls <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>declaration_list</span></code>)
+descending down through the tree until bottoming out at a terminal (such as those
+in rule <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>literal</span></code>). </p>
+
+<p class=MsoNormal><span style='color:blue;mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_i1028" type="#_x0000_t75"
+ style='width:208.5pt;height:160.5pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="index_files/image002.png" o:title=""/>
+</v:shape><![endif]-->
+<p>Consider an example sentence in the Crux language: </p>
+
+<pre><span class=GramE>func</span> main() : int {return 5;}</pre><pre><span style='mso-spacerun:yes'>    </span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>The
+corresponding parse tree is shown to the right (click on it for larger
+version). All of the grammar production rules involved in describing this
+sentence are present in the tree (shown to the right, click on it for a larger
+version). The <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>crux.Parser</span></code> calls a method
+for each one of the parser rules (orange boxes) in the tree. For example, the <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>function_declaration</span></code> method calls the <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>parameter_list</span></code> method after it has read the <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>FUNC</span></code>, <span class=GramE><code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>IDENTIFIER(</span></code></span><code><span style='font-size:
+10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>main)</span></code>,
+and <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>OPEN_PAREN</span></code> tokens. </p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Notice
+that some of the productions consume none of the tokens. The <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>main</span></code> function in our example has no arguments, so
+the <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>parameter_list</span></code> production
+consumes the empty string, depicted as an empty token-styled box. Therefore the
+<code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>parameter_list</span></code> method must
+be able to quit and return without accidentally eating the following <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>CLOSE_PAREN</span></code> token. </p>
+
+<h1 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Left-Factoring
+Removes Infinite Recursion</h1>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Implementing
+each rule as a mutually recursive method in the parser can lead to accidental
+infinite loops. Consider the following (very tiny) grammar, and pseudo-code
+implementation: </p>
+
+<table class=MsoNormalTable border=1 cellpadding=0 width="43%"
+ style='width:43.1%;mso-cellspacing:1.5pt;background:#EEECE1;mso-background-themecolor:
+ background2;border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width="38%" style='width:38.16%;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:.75pt .75pt .75pt .75pt'><pre><span
+  class=GramE>letter</span> := letter &quot;a&quot; | &quot;a&quot; .</pre><pre><span style='mso-spacerun:yes'>          </span></pre></td>
+  <td width="61%" style='width:61.12%;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:.75pt .75pt .75pt .75pt'><pre>void letter() {</pre><pre><span style='mso-spacerun:yes'>    </span>switch(currentToken) {</pre><pre><span style='mso-spacerun:yes'>    </span>case /*first choice*/:</pre><pre><span style='mso-spacerun:yes'>        </span>letter();</pre><pre><span style='mso-spacerun:yes'>        </span>eatToken(&quot;IDENTIFIER(a)&quot;);</pre><pre><span style='mso-spacerun:yes'>    </span>case /*second choice*/:</pre><pre><span style='mso-spacerun:yes'>        </span>eatToken(&quot;IDENTIFIER(a)&quot;);</pre><pre><span style='mso-spacerun:yes'>    </span>}</pre><pre>}</pre><pre><span style='mso-spacerun:yes'>          </span></pre></td>
+ </tr>
+</table>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>What
+happens if the <code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>letter</span></code>
+method always tries the first choice? </p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>First
+we call <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>letter</span></code>, which again calls <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>letter</span></code> without consuming any tokens of input. The
+second call in turn calls <code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>letter</span></code>
+without consuming any tokens of input. The third call again calls <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>letter</span></code> without consuming any input. And so on,
+until the Java runtime environment says we made too many calls to <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>letter</span></code> by throwing a <code><span style='font-size:
+10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>java.lang.StackOverflowError</span></code>.
+</p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>This
+is a contrived example, and shows the problem rather directly. In realistic
+grammars, we may have production rules that double-back on themselves in a
+mutually recursive fashion. For example, it might be a longer chain: <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>expression</span></code> calls <code><span style='font-size:
+10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>term</span></code>
+calls <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>factor</span></code> calls back to <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>expression</span></code>. We still have to remove the
+left-recursion in a process known as <a
+href="http://en.wikipedia.org/wiki/Left_recursion">left-factoring</a>, as shown
+in class. </p>
+
+<h1 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>FirstSets
+Allow Predictive Choice</h1>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Once
+we have a grammar that allows us to compose a recursive descent parser without
+worry of infinite loops, we notice that some of the productions have more than
+one available expansion. For example, consider a hypothetical <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>statement</span></code> rule, and its pseudoccode
+implementation: </p>
+
+<table class=MsoNormalTable border=1 cellpadding=0 width="42%"
+ style='width:42.8%;mso-cellspacing:1.5pt;background:#EEECE1;mso-background-themecolor:
+ background2;border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width="42%" style='width:42.08%;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:.75pt .75pt .75pt .75pt'><pre>statement := variable-declaration</pre><pre><span style='mso-spacerun:yes'>          </span>| statement-<span
+  class=GramE>block .</span></pre><pre><span style='mso-spacerun:yes'>          </span></pre></td>
+  <td width="57%" style='width:57.2%;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:.75pt .75pt .75pt .75pt'><pre>void letter() {</pre><pre><span style='mso-spacerun:yes'>    </span>switch(currentToken) {</pre><pre><span style='mso-spacerun:yes'>    </span><span
+  class=GramE>case ???:</span></pre><pre><span style='mso-spacerun:yes'>        </span>variable_declaration();</pre><pre><span style='mso-spacerun:yes'>        </span>break;</pre><pre><span style='mso-spacerun:yes'>    </span><span
+  class=GramE>case ???:</span></pre><pre><span style='mso-spacerun:yes'>        </span>statement_block();</pre><pre><span style='mso-spacerun:yes'>        </span>break;</pre><pre><span style='mso-spacerun:yes'>    </span>case default:</pre><pre><span style='mso-spacerun:yes'>        </span>error(&quot;couldn't make a choice&quot;);</pre><pre><span style='mso-spacerun:yes'>    </span>}</pre><pre>}</pre><pre><span style='mso-spacerun:yes'>          </span></pre></td>
+ </tr>
+</table>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>What
+if <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>variable_declaration</span></code> and <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>statement_block</span></code> both started with <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>&quot;var&quot;</span></code>? How will the parser be able to
+decide, from looking just at the <code><span style='font-size:10.0pt;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>currentToken</span></code>
+which case it should execute? </p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>We
+can make sure that there is only one unique branch to execute by computing
+what's called the <code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>FirstSet</span></code>
+of each non-terminal production rule. The above example happens to be
+contrived, because when we look at the grammar rules for <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>variable_declaration</span></code> we see that it may start with
+either a <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>VAR</span></code> or <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>ARRAY</span></code> token, while <code><span style='font-size:
+10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>statement_block</span></code>
+always begins with <span class=GramE>a</span> <code><span style='font-size:
+10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>OPEN_BRACE</span></code>.
+<span class=GramE><code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>FirstSet(</span></code></span><code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>variable_delaration)</span></code> shares no common tokens with <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>FirstSet(statement_block)</span></code>, so the parser is always
+able to choose uniquely between these two possible paths, with no information
+other than the <code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>currentToken</span></code>.
+</p>
+
+
+<h1 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Designing
+the Parser</h1>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Because
+the parser has already several tasks to accomplish, it makes sense to first
+sketch some components of the design. </p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Reading
+Input</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>The
+Parser gets <span class=GramE>it's</span> input from a stream of tokens
+returned from the Scanner. It's not necessary (nor allowed) to look more than
+one token ahead. This means that we need only one field <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>currentToken</span></code> to store the current position in the
+token stream. </p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Sometimes,
+like when stepping over an <code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>OPEN_PAREN</span></code>
+this token needs to be consumed. The parser need only report a syntax error if
+the current token happens to be different than the one expected (<code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>OPEN_PAREN</span></code> At other times, like when detecting
+whether the optional <code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>ELSE</span></code>
+branch is present, the token is only consumed if it matches the one expected.
+Because the else clause is optional, the parser would not report a syntax error
+if the current token happened to be different. Rather, it would consider the <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>if_statement</span></code> finished, and pick up where it left
+off (likely <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>statement_list</span></code>). Already,
+we can see that, depending on the grammar, sometimes the current token should
+be eaten and the token stream advanced and sometimes not; sometimes an error
+should be reported and sometimes not. </p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>To
+support a matrix of possibilities I suggest the following helper functions: </p>
+
+<table class=MsoNormalTable border=1 cellpadding=0 style='mso-cellspacing:1.5pt;
+ background:#EEECE1;mso-background-themecolor:background2;border:solid windowtext 1.0pt;
+ mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 5.4pt 0in 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:
+ .5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  background:#7F7F7F;mso-background-themecolor:text1;mso-background-themetint:
+  128;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b>Name<o:p></o:p></b></p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  background:#7F7F7F;mso-background-themecolor:text1;mso-background-themetint:
+  128;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b>Advance stream?<o:p></o:p></b></p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  background:#7F7F7F;mso-background-themecolor:text1;mso-background-themetint:
+  128;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b>Report Error?<o:p></o:p></b></p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  background:#7F7F7F;mso-background-themecolor:text1;mso-background-themetint:
+  128;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b>Purpose?<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><code><span style='font-size:10.0pt;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast'>have</span></code></p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>No</p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>No</p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Examine the current token.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><code><span style='font-size:10.0pt;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast'>accept</span></code></p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>When token matches</p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>No</p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Allow matching tokens to be consumed.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><code><span style='font-size:10.0pt;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast'>expect</span></code></p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>When token matches</p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>When token doesn't match</p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Report errors on unexpected tokens.</p>
+  </td>
+ </tr>
+</table>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Furthermore,
+these questions will sometimes be asked not on individual <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>crux.Token.Kind</span></code>s, but on a collection of them. For
+example, if the Parser has to decide whether there were more statements in a <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>statement_list</span></code>, it's convenient to call <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>have</span></code> on the <code><span style='font-size:10.0pt;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>statement</span></code>'s
+<code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>FirstSet</span></code>. Each of the above
+three functions should be overloaded to receive either a <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>Token.Kind</span></code> or a <code><span style='font-size:10.0pt;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>NonTerminal</span></code>.
+</p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Recording
+the Parse Tree</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>The
+recursive descent parser has a method for each production rule in the grammar.
+When it parses a sentence, it naturally makes a sequence of methods calls that
+correspond to a pre-order traversal of the parse tree. All that is required in
+the project, is to record this sequence. </p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>The
+<code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>crux.Parser</span></code> contains one
+field and two methods for tracking the sequence of production rules: </p>
+
+<pre>StringBuffer parseTreeBuffer; <span class=GramE>A</span> field for storing the sequence of production rules.</pre><pre><span
+class=GramE>void</span> enterRule(NonTerminal);<span style='mso-spacerun:yes'>  </span>Called whenever the parser enters a production rule.</pre><pre><span
+class=GramE>void</span> exitRule(NonTerminal);<span style='mso-spacerun:yes'>   </span>Called whenever the parser exits a production rule.</pre><pre>String <span
+class=GramE>parseTreeReport(</span>);<span style='mso-spacerun:yes'>     </span>A method to retrieve the production rule sequence.</pre>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Reporting
+Syntax Errors</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>The
+<code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>crux.Parser</span></code> contains a
+method specifically for reporting syntax errors: <span class=GramE><code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>reportSyntaxError(</span></code></span><code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>Token tok)</span></code>. This method produces an easy to read
+error report, which we should expect to find useful when writing test Crux
+programs for the full compiler. Despite the fact that (in this lab) only one
+error will be reported, the parser has a <code><span style='font-size:10.0pt;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>StringBuffer
+errorBuffer</span></code> field that records errors for later query. </p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Developing
+FirstSets</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Each
+of production rules has associated with it a <code><span style='font-size:10.0pt;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>Set&lt;Token.Kind&gt;</span></code>
+which describes the collection of tokens which may begin that clause in the
+grammar. In contrast to terminals (Tokens produced by the Scanner), only the
+non-terminals (production rules|parser methods) have FirstSets. Because the
+grammar is already established, these sets never change, so <span class=GramE>a</span>
+<code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>enum NonTerminal</span></code> is a
+perfect fit. </p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Ordinarily,
+it would be cumbersome to compute, for every rule in the grammar, a FirstSet.
+However, Java has an &quot;anonymous class construction&quot; idiom (with
+regrettably verbose syntax). This feature allows computational construction (at
+Java compile time) of the FirstSets. A contrived snippet (<em>not</em> from the
+Crux grammar) is given below, to show the convenience and use of the <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>Set.add</span></code> and <code><span style='font-size:10.0pt;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>Set.addAll</span></code>
+methods: </p>
+
+<table class=MsoNormalTable border=1 cellpadding=0 width="44%"
+ style='width:44.64%;mso-cellspacing:1.5pt;background:#EEECE1;mso-background-themecolor:
+ background2;border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width="32%" style='width:32.02%;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:.75pt .75pt .75pt .75pt'><pre>factor := &quot;not&quot; expression</pre><pre><span style='mso-spacerun:yes'>       </span>| <span
+  class=GramE>designator .</span></pre><pre><span style='mso-spacerun:yes'>         </span><span style='mso-spacerun:yes'> </span></pre></td>
+  <td width="67%" style='width:67.3%;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:.75pt .75pt .75pt .75pt'><pre>FACTOR(new HashSet<token.kind>() {</pre><pre><span style='mso-spacerun:yes'>    </span>private static final long serialVersionUID = 1L;</pre><pre><span style='mso-spacerun:yes'>    </span>{</pre><pre><span style='mso-spacerun:yes'>        </span>add(Token.Kind.NOT);</pre><pre><span style='mso-spacerun:yes'>        </span>addAll(DESIGNATOR.firstSet);</pre><pre><span style='mso-spacerun:yes'>    </span>}})</pre><pre><span style='mso-spacerun:yes'>         </span><span style='mso-spacerun:yes'> </span></token.kind></pre></td>
+ </tr>
+</table>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>In
+this example, we must be sure that <code><span style='font-size:10.0pt;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>DESIGNATOR</span></code>
+is listed before <code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>FACTOR</span></code>.
+Otherwise, the Java compiler will complain that DESIGNATOR doesn't exist when
+it tries to run the <code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>addAll</span></code>
+line in <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>FACTOR</span></code>. </p>
+
+<h1 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Restrictions</h1>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo2;tab-stops:list .5in'>The <code><span
+     style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+     mso-fareast-theme-font:minor-fareast'>crux.Parser</span></code> must read
+     each token, one at a time, only as needed, using the <code><span
+     style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+     mso-fareast-theme-font:minor-fareast'>next()</span></code> method of <code><span
+     style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+     mso-fareast-theme-font:minor-fareast'>crux.Scanner</span></code></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo2;tab-stops:list .5in'>Naming Convention:
+     NonTerminals are all uppercase with an underscore &quot;_&quot; where the
+     production rule has hyphen &quot;-&quot;.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo2;tab-stops:list .5in'>Naming Convention: Parser
+     methods are all lowercase with an underscore &quot;_&quot; where the
+     production rule has hyphen &quot;-&quot;.</li>
+</ul>
+
+
+
+</div>
+
+</div>
+
+<div>
+
+<div style='margin-top:3.75pt;margin-bottom:3.75pt'>
+
+<div class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-size:8.0pt;font-family:"Arial","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:black'>
+
+<BR><BR><BR>
+<hr size=1 width="100%" noshade style='color:#000040' align=center>
+
+</span></div>
+
+</div>
+<p class=MsoNormal style='mso-margin-top-alt:auto;margin-left:0in;text-indent:
+-.25in;mso-list:l1 level1 lfo4;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:8.0pt;font-family:Symbol;mso-fareast-font-family:
+Symbol;mso-bidi-font-family:Symbol;color:black'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:8.0pt;font-family:"Arial","sans-serif";
+color:black'>Adapted from a similar document from CS 141 Winter 2013 by Alex
+Thornton, </span><span style='font-size:8.0pt;font-family:"Arial","sans-serif";
+mso-fareast-font-family:"Times New Roman";color:black'><o:p></o:p></span></p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

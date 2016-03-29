@@ -1,0 +1,1881 @@
+
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40" xml:lang="en">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=unicode">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<link rel=File-List href="index_files/filelist.xml">
+<link rel=Edit-Time-Data href="index_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>CRUX Compiler P5</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>harrygxu</o:Author>
+  <o:LastAuthor>harrygxu</o:LastAuthor>
+  <o:Revision>13</o:Revision>
+  <o:TotalTime>21</o:TotalTime>
+  <o:Created>2014-03-03T18:47:00Z</o:Created>
+  <o:LastSaved>2016-02-19T17:10:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>3434</o:Words>
+  <o:Characters>19084</o:Characters>
+  <o:Lines>159</o:Lines>
+  <o:Paragraphs>44</o:Paragraphs>
+  <o:CharactersWithSpaces>22474</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="index_files/themedata.thmx">
+<link rel=colorSchemeMapping href="index_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>77</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all href="index_files/course.css">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:宋体;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-536870145 64767 1 0 415 0;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 680460288 22 0 262145 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+h1
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 2 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#0000A0;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:#004000;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+code
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{mso-style-priority:99;
+	mso-style-link:"HTML Preformatted Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:11.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+tt
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-ansi-font-size:11.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:24.0pt;
+	mso-bidi-font-size:24.0pt;
+	mso-font-kerning:18.0pt;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 2";
+	mso-ansi-font-size:18.0pt;
+	mso-bidi-font-size:18.0pt;
+	font-weight:bold;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"HTML Preformatted";
+	font-family:Consolas;
+	mso-ascii-font-family:Consolas;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Consolas;
+	mso-bidi-font-family:Consolas;}
+p.title, li.title, div.title
+	{mso-style-name:title;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.subtitle, li.subtitle, div.subtitle
+	{mso-style-name:subtitle;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.center, li.center, div.center
+	{mso-style-name:center;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.title1, li.title1, div.title1
+	{mso-style-name:title1;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:navy;
+	font-weight:bold;
+	font-style:italic;}
+p.subtitle1, li.subtitle1, div.subtitle1
+	{mso-style-name:subtitle1;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:navy;
+	font-weight:bold;}
+p.center1, li.center1, div.center1
+	{mso-style-name:center1;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	mso-fareast-font-family:SimSun;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:308439875;
+	mso-list-template-ids:1230043490;}
+@list l0:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:870648346;
+	mso-list-template-ids:-2050819598;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2
+	{mso-list-id:947543648;
+	mso-list-template-ids:-2080201204;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l2:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3
+	{mso-list-id:993996389;
+	mso-list-template-ids:955683158;}
+@list l3:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:1326006840;
+	mso-list-template-ids:731047578;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l4:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l4:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l4:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l4:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l4:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l4:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l4:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l5
+	{mso-list-id:2105569207;
+	mso-list-template-ids:267285730;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l5:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l5:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l5:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l5:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l5:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l5:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l5:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l5:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor="#D0D0FF" lang=EN-US link="#0000A0" vlink="#004000"
+style='tab-interval:.5in'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='margin-top:3.75pt;margin-right:0in;
+margin-bottom:3.75pt;margin-left:0in;text-align:center'><span class=SpellE><span
+style='font-size:9.0pt;font-family:"Arial","sans-serif";color:#000040'></span></span><span
+style='font-size:9.0pt;font-family:"Arial","sans-serif";color:#000040'>
+</span><span style='font-size:9.0pt;font-family:"Arial","sans-serif";
+mso-fareast-font-family:SimSun;color:#000040'></span><span style='font-size:
+9.0pt;font-family:"Arial","sans-serif";color:#000040'> 
+This webpage was adapted from <a href="http://www.ics.uci.edu/~thornton/">Alex
+Thornton</a>’s offering of CS 141</span><span style='font-size:11.0pt;
+font-family:"Arial","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:black'><o:p></o:p></span></p>
+
+<div style='margin-top:3.75pt;margin-bottom:3.75pt'>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:11.0pt;font-family:"Arial","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:black'>
+
+<hr size=1 width="100%" noshade style='color:#000040' align=center>
+
+</span></div>
+
+</div>
+
+<div>
+
+<p class=MsoNormal align=center style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;text-align:center'><span class=SpellE><b><span style='font-size:18.0pt;
+font-family:"Arial","sans-serif";color:#000040'></span></b></span><b><span
+style='font-size:18.0pt;font-family:"Arial","sans-serif";color:#000040'> 
+  <span class=GramE></span> </span></b><b><span
+style='font-size:18.0pt;font-family:"Arial","sans-serif";mso-fareast-font-family:
+SimSun;color:#000040'></span></b><b><span style='font-size:18.0pt;font-family:
+"Arial","sans-serif";color:#000040'>
+Project #6: Code Generation<o:p></o:p></span></b></p>
+<center><a href="http://davidpynes.github.io/Crux-Compiler/index.html"> Index </a></p></center>
+
+
+<div style='margin-top:3.75pt;margin-bottom:3.75pt'>
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:11.0pt;font-family:"Arial","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:black'>
+
+<hr size=1 width="100%" noshade style='color:#000040' align=center>
+
+</span></div>
+
+</div>
+
+</div>
+
+<div>
+
+<div style='margin-top:3.75pt;margin-bottom:3.75pt'>
+
+<h1>Introduction</h1>
+
+<p>This project transforms our semantically checked AST into MIPS assembly
+code. </p>
+
+<p>Now that we have a semantically verified tree representation of crux source
+code, we can translate that representation to assembly code. Because we're
+targeting MIPS assembly, we will need a simulator for the MIPs architecture.
+Fortunately, James <span class=SpellE>Larus</span>, has written <a
+href="http://spimsimulator.sourceforge.net/">SPIM</a>, for his compiler class
+at University of Wisconsin, Madison. </p>
+
+<h2>Obtaining <span class=SpellE>Spim</span></h2>
+
+<p>You may visit the <a href="https://ssllab.org/%7Eerich/cs142a/labs/lab6/"><span
+class=SpellE>Sourceforge</span> download site</a>, or use one of the links
+below. </p>
+
+<table class=MsoNormalTable border=1 cellpadding=0 style='mso-cellspacing:1.5pt;
+ border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-border-insideh:.5pt solid windowtext;
+ mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b>OS<o:p></o:p></b></p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b>Download<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Mac</p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a href="spim/QtSpim_9.0.3_mac.dmg">QtSpim_9.0.3_mac.dmg</a></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Windows</p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a href="spim/QtSpim_9.1.7_Windows.zip">QtSpim_9.1.7_Windows.zip</a><br>
+  <a href="spim/PCSpim_9.1.4.zip">PCSpim_9.1.4.zip</a></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Linux</p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><a href="spim/qtspim_9.1.6_linux32.deb">qtspim_9.1.6_linux32.deb</a><br>
+  <a href="spim/qtspim_9.1.6_linux64.deb">qtspim_9.1.6_linux64.deb</a><br>
+  For those using Ubuntu, a command line version of <span class=SpellE>spim</span>
+  is available using the command &quot;apt-get install <span class=SpellE>spim</span>&quot;.</p>
+  </td>
+ </tr>
+</table>
+
+<h2>Working with Assembly</h2>
+
+<p>The processor itself has no concept of higher-level
+language conveniences, such as loop bodies, code blocks, type safety, variable
+scope, classes and objects, etc. This lab focuses on lowering crux's higher-level
+features into assembly. For example, we will model variables as storage on the
+stack which must first be loaded into a register before performing any
+operation. If the variable's value is updated, as in the case of an assignment,
+the value must be stored back to the stack, in order for the update to persist.
+</p>
+
+<h2>Documentation</h2>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l5 level1 lfo1;tab-stops:list .5in'><a href="spim/spim.pdf">Introduction
+     <span class=SpellE>ot</span> SPIM Programming</a> </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l5 level1 lfo1;tab-stops:list .5in'><a
+     href="spim/MIPS%20Tutorial.pdf">MIPS Assembly Language Programming</a></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l5 level1 lfo1;tab-stops:list .5in'><a
+     href="http://alumni.cs.ucr.edu/~vladimir/cs161/mips.html">Reference List
+     of MIPS Instructions</a> [the instruction <span class=SpellE><code><span
+     style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+     mso-fareast-theme-font:minor-fareast'>jal</span></code></span> places the address
+     of the next instruction in <code><span style='font-size:10.0pt;mso-fareast-font-family:
+     "Times New Roman";mso-fareast-theme-font:minor-fareast'>$<span
+     class=SpellE>ra</span></span></code>, not <code><span style='font-size:
+     10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+     minor-fareast'>$<span class=SpellE>rd</span></span></code> as claimed in
+     this reference.]</li>
+</ul>
+
+<h1>Code Generation</h1>
+
+<p>In this project we will write another visitor on the AST. The <span
+class=SpellE>mips.CodeGen</span> visitor traverses a crux AST and generates
+MIPS assembly code. Although the AST contains all of the information needed for
+compilation, the visitor is limited in its traversal. For example, when the <span
+class=SpellE>CodeGen</span> visitor visits a <span class=SpellE>FunctionDefinition</span>
+node, it does not immediately <span class=SpellE>know</span> about the
+variables declared within the function body. </p>
+
+<p>In addition to local variables, Crux offers other language features, such as
+loops and conditional branching, that we shall have to translate into assembly
+code. Some of these features tend to be more work than others, but we can
+always abstract some of the complexity by writing helper classes and methods.
+For example, we can delay reservation of storage for function local variables
+until after the function body has been traversed. </p>
+
+<h1>Functions and Stack Frames</h1>
+
+<p>Each time a function is called, the machine must perform some bookkeeping
+that allows it to return to the correct place when the function is finished. We
+can model the functions on a stack data structure, because when F calls G, G
+must complete before F can resume where it left off. At runtime, the <a
+href="http://en.wikipedia.org/wiki/Call_stack">call stack</a> contains an
+Activation Record for each active function. A function's activation record
+stores bookkeeping information such as the return address and caller frame
+pointer and contains additional space for local variables. In our code, we take
+care to ensure two invariants that make programming (and debugging) easier: </p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo2;tab-stops:list .5in'>The frame pointer register, <code><span
+     style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+     mso-fareast-theme-font:minor-fareast'>$<span class=SpellE>fp</span></span></code>,
+     always holds the position of the activation record for the currently
+     executing function (i.e., the one last placed on the stack).</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo2;tab-stops:list .5in'>The stack pointer register, <code><span
+     style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+     mso-fareast-theme-font:minor-fareast'>$<span class=SpellE>sp</span></span></code>,
+     always holds the position of the last value placed on the stack. Often,
+     this will be a temporary from a <span class=SpellE>subbranch</span> of a
+     long expression.</li>
+</ol>
+
+<p>When one function calls another, we have to ensure that special registers
+such as the frame pointer, <code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>$<span class=SpellE>fp</span></span></code>,
+are remembered and restored appropriately. The passing of arguments and
+returning of values must also be handled with some care. The most important
+aspect is that the caller and <span class=SpellE>callee</span> must <em>agree
+on a calling convention</em> that clearly delegates the bookkeeping
+responsibilities. This agreement between functions is more important than the
+details of the convention itself. Although calling conventions vary by
+architecture, they all have strong similarities to each other. In this project,
+the calling convention passes all arguments via the stack. We make this
+simplification to avoid writing code that would handle real-world complexities
+like &quot;<span class=SpellE>callee</span> saved&quot; and &quot;caller
+saved&quot; registers. </p>
+
+<p>A function call breaks down into four discrete steps: </p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'>caller sets up the <span
+     class=SpellE>callsite</span>,</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'><span class=SpellE>callee</span>
+     remembers where it should go after finishing and sets up space for itself,</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'><span class=SpellE>callee</span>
+     finishes and tears itself down,</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'><span class=GramE>caller</span>
+     retrieve any return value and tears down the <span class=SpellE>callsite</span>.</li>
+</ol>
+
+<h2>Caller Setup</h2>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:1.5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p>The caller has evaluated all the arguments that will be passed to the <span
+  class=SpellE>callee</span>, and pushed them on the stack. The stack pointer, <code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>$<span class=SpellE>sp</span></span></code>, references the
+  last argument pushed. The frame pointer, <code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>$<span
+  class=SpellE>fp</span></span></code>, references the currently executing
+  frame (somewhere much higher on the stack). In MIPS the stack grows down. So
+  each time a value code pushes a value on the stack it subtracts from <code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>$<span class=SpellE>sp</span></span></code> the size (in
+  bytes) of that value. </p>
+  <p>Finally, after evaluating the arguments, and placing them on the stack,
+  the caller makes a call to the function &quot;<span class=SpellE>func</span>&quot;.
+  The <span class=SpellE><code><span style='font-size:10.0pt;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast'>jal</span></code></span>
+  opcode automatically changes the return address register, <code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>$<span class=SpellE>ra</span></span></code> to hold the
+  instruction immediately following itself. When &quot;<span class=SpellE>func</span>&quot;
+  has finished, that's exactly where the current function will pick up again. </p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>//<span
+  class=SpellE>eval</span> and push <span class=SpellE>args</span></span></code></p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>jal</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  <span class=SpellE>func</span></span></code></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'><pre style='text-align:right'><span style='mso-spacerun:yes'>                     </span>←$<span
+  class=SpellE>fp</span></pre><pre style='text-align:right'><o:p>&nbsp;</o:p></pre><pre
+  style='text-align:right'><o:p>&nbsp;</o:p></pre><pre style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>| computation |</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>+-------------+</pre><pre
+  style='text-align:right'>|<span style='mso-spacerun:yes'>             </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>   </span><span
+  class=SpellE>args</span><span style='mso-spacerun:yes'>      </span>|</pre><pre
+  style='text-align:right'>$<span class=SpellE>sp</span>→ +-------------+</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>    </span></pre></td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'><pre><o:p>&nbsp;</o:p></pre></td>
+ </tr>
+</table>
+
+<h2><span class=SpellE>Callee</span> Prologue</h2>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:1.5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p>Every function (including the main function) begins with some entry code,
+  known as the <span class=GramE>prologue, that</span> executes as soon as the
+  function takes over execution. The <span class=SpellE>callee</span> first
+  allocates some space for bookkeeping values. </p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>subu</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  $<span class=SpellE>sp</span>, $<span class=SpellE>sp</span>, 8</span></code></p>
+  <p>Next, the <span class=SpellE>callee</span> saves the caller's frame
+  pointer and return address. </p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>sw</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  $<span class=SpellE>fp</span>, 0($<span class=SpellE>sp</span>)</span></code></p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>sw</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  $<span class=SpellE>ra</span>, 4($<span class=SpellE>sp</span>)</span></code></p>
+  <p>Then it updates the frame pointer to reference its own activation record. </p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>addi</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  $<span class=SpellE>fp</span>, $<span class=SpellE>sp</span>, 8</span></code></p>
+  <p>Finally it reserves enough space on the stack to store all the variables and
+  arrays local to this function. For the sake of using real numbers in our
+  example, let's assume &quot;<span class=SpellE>func</span>&quot; has one <span
+  class=SpellE>int</span> and an array of three floats. On MIPS, <span
+  class=SpellE>ints</span> are 4 bytes, and each float (single precision) is 4
+  bytes. That means we must reserve 1*4 + 3*4 = 16 bytes. </p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>subu</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  $<span class=SpellE>sp</span>, $<span class=SpellE>sp</span>, 16</span></code></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'><pre style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>  </span><span
+  class=SpellE>args</span><span style='mso-spacerun:yes'>       </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>+-------------+ ←$<span
+  class=SpellE>fp</span></pre><pre style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>  </span>ret <span
+  class=SpellE>addr</span><span style='mso-spacerun:yes'>   </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>+-------------+</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>  </span><span
+  class=SpellE>prev</span> <span class=SpellE>fp</span><span style='mso-spacerun:yes'>    </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>+-------------+</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>   </span><span
+  class=SpellE>var</span> <span class=SpellE>int</span><span style='mso-spacerun:yes'>   </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>  </span>float [2]<span style='mso-spacerun:yes'>  </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>  </span>float [1]<span style='mso-spacerun:yes'>  </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>  </span>float [0]<span style='mso-spacerun:yes'>  </span>|</pre><pre
+  style='text-align:right'>$<span class=SpellE>sp</span>→ +-------------+</pre><pre><span style='mso-spacerun:yes'>    </span></pre></td>
+ </tr>
+</table>
+
+<h2><span class=SpellE>Callee</span> Execution</h2>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:1.5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p>Note that, during execution the frame pointer provides the anchor from
+  which addresses for arguments and local variables can be computed. </p>
+  <p>For example, <code><span style='font-size:10.0pt;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast'>0($<span
+  class=SpellE>fp</span>)</span></code> holds the last argument, <code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>4($<span class=SpellE>fp</span>)</span></code> holds the
+  second-to-last argument, <code><span style='font-size:10.0pt;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast'>8($<span
+  class=SpellE>fp</span>)</span></code> holds the third-to-last argument, etc.
+  If &quot;<span class=SpellE>func</span>&quot; had 5 arguments, the first one
+  would be at <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-theme-font:minor-fareast'>16($<span class=SpellE>fp</span>)</span></code>
+  </p>
+  <p>Similarly, but in the other direction, we can address the local variables.
+  However, we have to skip past the return address and previous frame pointer.
+  The one local <span class=SpellE>int</span> is at <code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>-12($<span class=SpellE>fp</span>)</span></code>, and the base
+  address of the array of three floats is found at <code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>-16($<span class=SpellE>fp</span>)</span></code>. </p>
+  <p>This project implements computations with a stack machine model of
+  execution. So, the <span class=SpellE>callee</span> will place temporary
+  values that result from partial evaluation of expressions onto the stack.
+  These temporary values do not persist between expressions, and can be
+  accessed via the stack pointer, <code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>$sp</span></code>.
+  </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'><pre><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>  </span><span
+  class=SpellE>args</span><span style='mso-spacerun:yes'>       </span>|</pre><pre><span style='mso-spacerun:yes'>     </span>+-------------+ ←$<span
+  class=SpellE>fp</span></pre><pre><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>  </span>ret <span
+  class=SpellE>addr</span><span style='mso-spacerun:yes'>   </span>|</pre><pre><span style='mso-spacerun:yes'>     </span>+-------------+</pre><pre><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>  </span><span
+  class=SpellE>prev</span> <span class=SpellE>fp</span><span style='mso-spacerun:yes'>    </span>|</pre><pre><span style='mso-spacerun:yes'>     </span>+-------------+</pre><pre><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre><span style='mso-spacerun:yes'>     </span>| local <span
+  class=SpellE>vars</span><span style='mso-spacerun:yes'>  </span>|</pre><pre><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre><span style='mso-spacerun:yes'>     </span>+-------------+</pre><pre><span style='mso-spacerun:yes'>     </span>| temp space<span style='mso-spacerun:yes'>  </span>|</pre><pre><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>    </span>for<span style='mso-spacerun:yes'>      </span>|</pre><pre><span style='mso-spacerun:yes'>     </span>| computation |</pre><pre><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre>$<span
+  class=SpellE>sp</span>→ +-------------+</pre><pre><span style='mso-spacerun:yes'>    </span></pre></td>
+ </tr>
+</table>
+
+<h2><span class=SpellE>Callee</span> Epilogue</h2>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:1.5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p>After &quot;<span class=SpellE>func</span>&quot; has completed its
+  execution, it has <span class=GramE>tear</span> down its activation record.
+  It does this by undoing the work of the prologue, in precisely reverse order,
+  starting with popping off the stack the space reserved for locals. (Remember
+  16 bytes is only for this example, the actual amount will vary by function.) </p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>addu</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  $<span class=SpellE>sp</span>, $<span class=SpellE>sp</span>, 16</span></code></p>
+  <p>Next, the return address and caller's frame pointer are restored. </p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>lw</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  $<span class=SpellE>ra</span>, 4($<span class=SpellE>sp</span>)</span></code></p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>lw</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  $<span class=SpellE>fp</span>, 0($<span class=SpellE>sp</span>)</span></code></p>
+  <p>The space for this bookkeeping is popped from the stack. </p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>addu</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  $<span class=SpellE>sp</span>, $<span class=SpellE>sp</span>, 8</span></code></p>
+  <p>Finally, control is <span class=SpellE>transfered</span> back to the
+  caller using a jump return. </p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>jr</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  $<span class=SpellE>ra</span> </span></code></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'><pre style='text-align:right'><span style='mso-spacerun:yes'>                     </span>←$<span
+  class=SpellE>fp</span></pre><pre style='text-align:right'><o:p>&nbsp;</o:p></pre><pre
+  style='text-align:right'><o:p>&nbsp;</o:p></pre><pre style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>| computation |</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>+-------------+</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>    </span><span
+  class=SpellE>args</span><span style='mso-spacerun:yes'>     </span>|</pre><pre
+  style='text-align:right'>$<span class=SpellE>sp</span>→ +-------------+ <span
+  style='color:silver'><o:p></o:p></span></pre><pre style='text-align:right'><span
+  style='color:silver;background:#D9D9D9;mso-shading:white;mso-pattern:gray-15 auto'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>  </span>ret <span
+  class=SpellE>addr</span><span style='mso-spacerun:yes'>   </span>|<o:p></o:p></span></pre><pre
+  style='text-align:right'><span style='color:silver;background:#D9D9D9;
+  mso-shading:white;mso-pattern:gray-15 auto'><span style='mso-spacerun:yes'>     </span>+-------------+<o:p></o:p></span></pre><pre
+  style='text-align:right'><span style='color:silver;background:#D9D9D9;
+  mso-shading:white;mso-pattern:gray-15 auto'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>  </span><span
+  class=SpellE>prev</span> <span class=SpellE>fp</span><span style='mso-spacerun:yes'>    </span>|<o:p></o:p></span></pre><pre
+  style='text-align:right'><span style='color:silver;background:#D9D9D9;
+  mso-shading:white;mso-pattern:gray-15 auto'><span style='mso-spacerun:yes'>     </span>+-------------+<o:p></o:p></span></pre><pre
+  style='text-align:right'><span style='color:silver;background:#D9D9D9;
+  mso-shading:white;mso-pattern:gray-15 auto'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|<o:p></o:p></span></pre><pre
+  style='text-align:right'><span style='color:silver;background:#D9D9D9;
+  mso-shading:white;mso-pattern:gray-15 auto'><span style='mso-spacerun:yes'>     </span>| local <span
+  class=SpellE>vars</span><span style='mso-spacerun:yes'>  </span>|<o:p></o:p></span></pre><pre
+  style='text-align:right'><span style='color:silver;background:#D9D9D9;
+  mso-shading:white;mso-pattern:gray-15 auto'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|<o:p></o:p></span></pre><pre
+  style='text-align:right'><span style='color:silver;background:#D9D9D9;
+  mso-shading:white;mso-pattern:gray-15 auto'><span style='mso-spacerun:yes'>     </span>+-------------+</span></pre><pre><span style='mso-spacerun:yes'>    </span></pre></td>
+ </tr>
+</table>
+
+<h2>Caller Teardown</h2>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:1.5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p>The caller now picks up execution where it left off. The arguments
+  provided to the caller are no longer needed, and can be popped off the stack.
+  Assuming that &quot;<span class=SpellE>func</span>&quot; had five arguments,
+  we'd pop 5*4 = 20 bytes off the stack. </p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>addi</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  $<span class=SpellE>sp</span>, $<span class=SpellE>sp</span>, 20</span></code></p>
+  <p>If the function called happens to have a return value it will be found in
+  register <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-theme-font:minor-fareast'>$v0</span></code>. Following the stack
+  machine execution <span class=GramE>semantics,</span> now is the time to push
+  the return value on the stack. Conceptually, the 5 arguments are now replaced
+  by the 1 result value. Functions with void return type have no value to
+  return, and so would skip this step and not push anything onto the stack. </p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>subu</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  $<span class=SpellE>sp</span>, $<span class=SpellE>sp</span>, 4</span></code></p>
+  <p class=MsoNormal style='margin-left:.5in'><span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>sw</span></code></span><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+  $v0, 0($<span class=SpellE>sp</span>)</span></code></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'><pre style='text-align:right'><span style='mso-spacerun:yes'>                     </span>←$<span
+  class=SpellE>fp</span></pre><pre style='text-align:right'><o:p>&nbsp;</o:p></pre><pre
+  style='text-align:right'><o:p>&nbsp;</o:p></pre><pre style='text-align:right'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>| computation |</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>+-------------+</pre><pre
+  style='text-align:right'><span style='mso-spacerun:yes'>     </span>| return <span
+  class=SpellE>val</span><span style='mso-spacerun:yes'>  </span>|</pre><pre
+  style='text-align:right'>$<span class=SpellE>sp</span>→ +-------------+<span
+  style='color:silver'><o:p></o:p></span></pre><pre style='text-align:right'><span
+  style='color:silver'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|<o:p></o:p></span></pre><pre
+  style='text-align:right'><span style='color:silver'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|<o:p></o:p></span></pre><pre
+  style='text-align:right'><span style='color:silver'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|<o:p></o:p></span></pre><pre
+  style='text-align:right'><span style='color:silver'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>             </span>|<o:p></o:p></span></pre><pre
+  style='text-align:right'><span style='color:silver'><span style='mso-spacerun:yes'>     </span>|<span style='mso-spacerun:yes'>    </span><span
+  class=SpellE>args</span><span style='mso-spacerun:yes'>     </span>|<o:p></o:p></span></pre><pre
+  style='text-align:right'><span style='color:silver'><span style='mso-spacerun:yes'>     </span>+-------------+</span></pre><pre><span style='mso-spacerun:yes'>    </span></pre></td>
+ </tr>
+</table>
+
+<h2>Returning a Value</h2>
+
+<p>Each function has only one epilogue. When a function has a return statement,
+it first evaluates the expression. It then pops the result off the stack and
+into the return register, <code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>$v0</span></code>.
+Control can safely jump directly to the function epilogue. Neither the epilogue
+nor caller teardown of function arguments affect the value in register <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>$v0</span></code>. By choosing register, <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>$v0</span></code>, the return value is safely preserved until
+the caller is ready to push it to the stack. </p>
+
+<h1>Accessing Global and Local Symbols</h1>
+
+<p>Just as we did in <a href="../Project3">Lab 3: Symbol Table</a>, we will again
+have to model variable use. This time around, it's not to find errors, for
+those have already been discovered by our semantic checks in earlier labs, but
+to retrieve and store values at runtime. For that, we need access to each
+symbol's address. </p>
+
+<h2>Symbols in Function Scope</h2>
+
+<p>A helper <span class=SpellE>ActivationRecord</span> class assists the <span
+class=SpellE>CodeGen</span> visitor in tracking the location of variables and
+arrays. Each time the visitor encounters an array or variable declaration it
+notifies the current <span class=SpellE>ActivationRecord</span> object, which
+records an offset (from the frame pointer) where the symbol will be stored at
+runtime. Later, when the crux program uses a variable, the <span class=SpellE>CodeGen</span>
+visitor retrieves the base address of that symbol from the current <span
+class=SpellE>ActivationRecord</span>. Because we create only one <span
+class=SpellE>ActivationRecord</span> per <span class=SpellE>FunctionDeclaration</span>,
+all variables declared within that function are 'lifted' to function-level
+scope. </p>
+
+<h2>Symbols in Global Scope</h2>
+
+<p>The MIPS architecture provides a global data store, which can reside outside
+of individual functions. Global data persists between function calls, and does
+not require an active stack frame for storage. Another class, <span
+class=SpellE>GlobalRecord</span>, extends the <span class=SpellE>ActivationRecord</span>
+class, to specialize on the storage and retrieval of global variables. The <span
+class=SpellE>CodeGen</span> visitor begins its traversal of the crux program
+AST with a <span class=SpellE>GlobalRecord</span> object. This object adds any
+variable or array declarations to the data segment section of the assembly
+code. It also returns to the visitor &quot;load address&quot; opcodes for any
+global data retrieved. </p>
+
+<h2>Transitioning from Global to Function Scope</h2>
+
+<p>Each time the <span class=SpellE>CodeGen</span> visitor encounters a <span
+class=SpellE>FunctionDefinition</span>, it can create a new <span class=SpellE>ActivationRecord</span>
+object to model that function's scope. <span class=SpellE>ActivationRecord's</span>
+are linked via a parent <span class=GramE>field, that</span> allows symbol
+lookup to chain upwards. If a symbol isn't found in the inner-most scope, a
+parent <span class=SpellE>ActivationRecord</span> supplies the address.
+(Because Crux does not support lexically nested functions, our implementation
+really only has 2 <span class=GramE>scope</span>: local and <span class=SpellE>gloabl</span>.)
+Once the <span class=SpellE>CodGen</span> visitor has finished assembling the
+function body, it can pop the current <span class=SpellE>ActivationRecord</span>
+and restore the previous one. </p>
+
+<h1>Evaluating Expressions on a Stack Machine</h1>
+
+<p>The assembly code that we generate in this project is far from optimal.
+Despite the fact that MIPS <span class=GramE>has</span> plenty of general
+purpose registers, we will be implementing a <a
+href="http://en.wikipedia.org/wiki/Stack_machine">Stack Machine</a>. Our
+emitted assembly code will unnecessarily shuffle values back and forth between
+registers and stack, resulting in slow MIPS programs. However, the stack
+machine design is much easier to implement and debug and this course values
+correctness of results over performance. The goal is not to try and compute
+results now, during compilation, but to generate code that will compute the
+results when the <span class=SpellE><span class=GramE>mips</span></span>
+assembly is executed. </p>
+
+<h2>The General Approach</h2>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:1.5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p>Prior to calculating a result, the code generator must first evaluate the
+  arguments to each operation. The generated assembly will place all temporary
+  results are on the stack. For an example, let's see what code is generated by
+  the expression &quot;<code><span style='font-size:10.0pt;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast'>3*a</span></code>&quot;,
+  which has an AST shown on the right. </p>
+  <p>The <code><span style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-theme-font:minor-fareast'>Add</span></code> node must first
+  determine its inputs, beginning with the <span class=SpellE>leftSide</span>
+  expression. The <span class=SpellE>leftSide</span>, a <span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>Mul</span></code></span> node, must also <span class=SpellE>also</span>
+  first determine its <span class=SpellE>leftSide</span>. The <span
+  class=SpellE>leftSide</span> of the <span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>Mul</span></code></span> node is an <span class=SpellE><code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>IntLiteral</span></code></span> which generates the conceptual
+  instruction: </p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>push
+  the number 3</span></code></p>
+  <p>Having finished with the <span class=SpellE>leftSide</span> of the <span
+  class=SpellE><code><span style='font-size:10.0pt;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast'>Mul</span></code></span>
+  node, the <span class=SpellE>CodeGen</span> visitor proceeds down the <span
+  class=SpellE>rightSide</span>, where it reaches a <code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>Dereference</span></code> node. This node also first
+  determines its argument, the <span class=SpellE><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>ReadSymbol</span></code></span>
+  node, which generates the conceptual instruction: </p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>push
+  the address of the symbol &quot;a&quot;</span></code></p>
+  <p>The visitor picks up where it left off: evaluating the <code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>Dereference</span></code> node, which generates the conceptual
+  instructions: </p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>pop
+  argument (address of symbol &quot;a&quot;)</span></code></p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>load
+  the value at that address</span></code></p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>push
+  the value</span></code></p>
+  <p>Now the <span class=SpellE>CodeGen</span> visitor has finished processing
+  both sides of the <span class=SpellE><code><span style='font-size:10.0pt;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>Mul</span></code></span>,
+  and it can create code for the multiplication. </p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>pop
+  the <span class=SpellE>rightSide</span> (value of variable &quot;a&quot;)</span></code></p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>pop
+  the <span class=SpellE>leftSide</span> (the number 3)</span></code></p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>compute
+  the multiplication</span></code></p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>push
+  the result</span></code> </p>
+  <p>With the <span class=SpellE>leftSide</span> of the <code><span
+  style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+  minor-fareast'>Add</span></code> node finished, the visitor proceeds to
+  evaluate the <span class=SpellE>rightSide</span>, which contains another <span
+  class=SpellE><code><span style='font-size:10.0pt;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast'>IntLiteral</span></code></span>
+  node. </p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>push
+  the number 2</span></code></p>
+  <p>Finally, both sides of the <code><span style='font-size:10.0pt;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-theme-font:minor-fareast'>Add</span></code>
+  node have been visited and the <span class=SpellE>CodeGen</span> visitor can
+  emit assembly that computes the addition. </p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>pop
+  the <span class=SpellE>rightSide</span> (the number 2)</span></code></p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>pop
+  the <span class=SpellE>leftSide</span> (the result of <span class=SpellE>mul</span>)</span></code></p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>compute
+  the addition</span></code></p>
+  <p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:
+  10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>push
+  the result</span></code></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'><pre><span style='mso-spacerun:yes'>                </span>Add</pre><pre><span style='mso-spacerun:yes'>               </span>/<span style='mso-spacerun:yes'>   </span>\</pre><pre><span style='mso-spacerun:yes'>      </span><span style='mso-spacerun:yes'>       </span>/<span style='mso-spacerun:yes'>       </span><span
+  class=SpellE>IntLiteral</span></pre><pre><span style='mso-spacerun:yes'>          </span><span
+  class=SpellE>Mul</span><span style='mso-spacerun:yes'>            </span>2</pre><pre><span style='mso-spacerun:yes'>        </span>/<span style='mso-spacerun:yes'>     </span>\</pre><pre><span style='mso-spacerun:yes'>      </span>/<span style='mso-spacerun:yes'>     </span>Dereference</pre><pre><span style='mso-spacerun:yes'>    </span>/<span style='mso-spacerun:yes'>            </span>|</pre><pre><span
+  class=SpellE>IntLiteral</span><span style='mso-spacerun:yes'>   </span><span
+  class=SpellE>ReadSymbol</span></pre><pre><span style='mso-spacerun:yes'>    </span>3<span style='mso-spacerun:yes'>            </span>a</pre><pre><span style='mso-spacerun:yes'>        </span></pre></td>
+ </tr>
+</table>
+
+<h2>Floating Point Comparison</h2>
+
+<p>MIPS provides 6 comparison operators for integers (<span class=SpellE><code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>slt</span></code></span>, <span class=SpellE><code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>sle</span></code></span>, <span class=SpellE><code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>seq</span></code></span>, <span class=SpellE><code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>sne</span></code></span>, <span class=SpellE><code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>sge</span></code></span>, <span class=SpellE><code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>sgt</span></code></span>) but only 3 for floating point numbers
+(<span class=SpellE><code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>c.eq.s</span></code></span>,
+<span class=SpellE><code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>c.le.s</span></code></span>,
+<span class=SpellE><code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>c.lt.s</span></code></span>).
+Even more inconvenient the floating point comparison operators put the result
+into a float-flag. In our stack machine semantics, we need to push the result
+of the comparison onto the stack. But the float-flag cannot be dumped into a
+register. To access the result of the comparison we use one of the floating
+point branch instructions (<code><span style='font-size:10.0pt;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'>bc1f</span></code>, <code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>bc1t</span></code>) in a hand-coded tiny if-else clause that
+pushes either 1 (true) or 0 (false) to the stack. <em>I think hand-coding this
+if-else clause is rather inelegant, feel free to suggest a better approach.</em>
+</p>
+
+<h2>Short-circuit Logical Operations</h2>
+
+<p>Most languages employ <a
+href="http://en.wikipedia.org/wiki/Short-circuit_evaluation">short-circuit
+evaluation</a> of the logical operators (and, or). For example, if the left
+(first) argument of a logical AND evaluates false, then the AND can immediately
+return false, allowing the machine to save time by skipping the evaluation of the
+right (second) argument. Crux, being a very simple language, evaluates all of
+the arguments to the logical operation. It does not support short-circuit
+evaluation of logical operations. We make this language design decision because
+it simplifies code generation. </p>
+
+<h2>Statements do not <span class=GramE>Grow</span> the Stack</h2>
+
+<p>As exhibited in the stack machine example, evaluating an expression leaves
+the result of that expression on the stack. Each <span class=GramE>operator,</span>
+can expect its arguments to be waiting on the stack, ready to pop off for computation.
+Expressions grow the stack as necessary for their <span class=SpellE>subcomputations</span>,
+and then push their own results on the top of the stack, where it can be popped
+<span class=SpellE>of</span> by a parent expression. </p>
+
+<p>In contrast, statements do not modify the stack size. A statement may contain
+an expression, which does modify the stack size during its execution. However,
+when the statement has finished evaluation of that expression, the stack is at
+the same size as when the statement began. We must enforce this constraint,
+otherwise the function epilogue will not execute as expected. For example, if a
+statement accidentally leaves a value pushed on the stack, then the stack
+pointer not <span class=GramE>be</span> where the function epilogue expects.
+Remember, the stack pointer arithmetic in the epilogue is <span class=SpellE>dependant</span>
+only on the size of the local variables, and assumes that the stack pointer is
+exactly that amount away from the bookkeeping data in the stack frame. </p>
+
+<h1>Control Flow</h1>
+
+<p>In addition to calling functions, we must also model the <span class=SpellE>IfElseBranch</span>
+and <span class=SpellE>WhileLoop</span>. Both of these language features
+involve jumping over a block of code. Depending on its condition, an <span
+class=SpellE>IfElseBranch</span> skips either the then-block or the else-block.
+When its condition evaluates false, a <span class=SpellE>WhileLoop</span> skips
+past the loop-body. </p>
+
+<h2>Labels</h2>
+
+<p>MIPS assembly allows the code generator to emit labels that mark jump
+targets. Together with an instruction to jump to any specified label, the
+assembly allows a great convenience: We don't have to calculate the number of
+bytes between the jump instruction and its target. Using a convenience function
+to generate unique labels, we avoid mixing up jump targets. A label can be
+emitted just before each block of code critical to control flow, including loop
+condition blocks, join blocks, and <span class=GramE>function</span> prologues.
+</p>
+
+<h2>Name Mangling</h2>
+
+<p>The SPIM assembler does not allow us to use MIPS instruction names as
+labels. For example, we cannot use the label &quot;<span class=SpellE><code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>bne</span></code></span><code><span style='font-size:10.0pt;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>:</span></code>&quot;
+as a jump target. Because we use labels for function names, we must be careful
+that the label for a function name does not collide with a MIPS instruction.
+That is, if the crux source code contains a &quot;<span class=SpellE><code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>func</span></code></span><code><span style='font-size:10.0pt;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+<span class=SpellE><span class=GramE>bne</span></span><span class=GramE>(</span>)
+: ....</span></code>&quot;, we could not use &quot;<span class=SpellE><code><span
+style='font-size:10.0pt;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>bne</span></code></span>&quot; as the label for that function in
+the MIPS assembly. We avoid name collision by automatically translating all
+crux function names to a form that will not result in any confusion. It's fine
+to use a simple mechanism for this process, such as prefixing &quot;<span
+class=SpellE>func</span>.&quot; or &quot;crux.&quot; to all function labels. Be
+sure to establish a mangling convention that avoids collisions between crux <span
+class=SpellE>globals</span>, crux functions, code jump labels, and <span
+class=SpellE><span class=GramE>mips</span></span> assembly commands. One caveat
+however, MIPS expects that the main function is labeled &quot;main&quot;. </p>
+
+<hr size=1 width="100%" noshade style='color:#000040' align=center>
+
+</span></div>
+
+</div>
+
+</div>
+
+<div>
+
+<p class=MsoNormal style='margin-top:3.75pt;margin-right:0in;margin-bottom:
+3.75pt;margin-left:0in'><span class=GramE><span style='font-size:8.0pt;
+font-family:"Arial","sans-serif";color:black'>Adapted from a similar document
+from CS 141 Winter 2013 by Alex Thornton.</span></span><span style='font-size:
+8.0pt;font-family:"Arial","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:black'><o:p></o:p></span></p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
