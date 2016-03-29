@@ -131,8 +131,6 @@ public class Token {
 	{
 		this.lineNum = lineNum;
 		this.charPos = charPos;
-		
-		// if we don't match anything, signal error
 		this.kind = Kind.ERROR;
 		this.lexeme = "No Lexeme Given";
 	}
@@ -149,7 +147,6 @@ public class Token {
 			}
 		}
 		
-		// if we don't match anything, signal error
 		this.kind = Kind.ERROR;
 		this.lexeme = "Unrecognized lexeme: " + lexeme;
 	}
@@ -184,31 +181,6 @@ public class Token {
 		
 		return str;
 	}
-	
-	/*
-	public String javaString()
-	{
-		String str = "";
-		
-		if (is(Kind.IDENTIFIER))
-			str += "new CruxToken.Identifier(\"" + lexeme +"\", ";
-		else if (is(Kind.ERROR))
-			str += "new CruxToken.Error(\"" + lexeme + "\", ";
-		else if (is(Kind.INTEGER))
-			str += "new CruxToken.Integer(\"" + lexeme + "\", ";
-		else if (is(Kind.FLOAT))
-			str += "new CruxToken.Float(\"" + lexeme + "\", ";
-		else if (is(Kind.EOF))
-			str += "new CruxToken.EOF(";
-		else
-			str += "new CruxToken(\"" + kind.default_lexeme + "\", ";
-		
-		// TODO: should java-escape the token.name() strings.
-		str += lineNum + ", " + charPos + ");";
-		
-		return str;
-	}
-	*/
 	
 	public boolean is(Token.Kind kind)
 	{

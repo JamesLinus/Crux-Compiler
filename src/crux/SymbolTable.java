@@ -73,12 +73,13 @@ public class SymbolTable extends AbstractSymbolTable {
     }
 
     public SymbolTable getParent() {
-		return parent.whoIsMyFather(this);
+		return parent.parents(this);
     }
 
-    protected SymbolTable whoIsMyFather(AbstractSymbolTable child) {
-    	return this; // Luke, I'm your father.
+    protected SymbolTable parents(AbstractSymbolTable child) {
+    	return this; 
     }
+
 }
 
 class SymbolNotFoundError extends Error {

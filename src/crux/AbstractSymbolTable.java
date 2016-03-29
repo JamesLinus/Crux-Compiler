@@ -13,9 +13,11 @@ public abstract class AbstractSymbolTable {
 			return "";
 		}
 
-    	protected AbstractSymbolTable whoIsMyFather(AbstractSymbolTable child) {
+    	@SuppressWarnings("unused")
+		protected AbstractSymbolTable parents(AbstractSymbolTable child) {
     		return child;
     	}
+
 	};
 
     /* The depth of this scope. */
@@ -28,5 +30,5 @@ public abstract class AbstractSymbolTable {
 
     public abstract String toString();
 
-    protected abstract <T extends AbstractSymbolTable> T whoIsMyFather(AbstractSymbolTable child);
+    protected abstract <T extends AbstractSymbolTable> T parents(AbstractSymbolTable child);
 }
