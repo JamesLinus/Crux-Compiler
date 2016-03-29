@@ -1,9 +1,0 @@
-// test returning int
-
-func myInt() : int {
-  return ::readInt();
-}
-
-func main() : void {
-  ::printInt(::myInt());
-}
