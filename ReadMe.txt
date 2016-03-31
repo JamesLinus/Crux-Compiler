@@ -1,5 +1,5 @@
-The CRUX compiler inputs CRUX files that follow the CRUX grammar.
+The CRUX compiler takes in CRUX files which follow CRUX grammar.
 
-Within the compiler the information is parsed, scanned, and tokenized then added to an abstract syntax tree. After various layers of error checking the CRUX code is compiled into assembly code for a MIPS processor.
+The compiler scans, parses, and tokenizes the characters. Then these tokens are converted to symbols which are used to create a abstract syntax tree. By walking the tree the CRUX compiler does various type and error checks and generates (MIPS) assembly code.
 
 For an in-depth description go here: http://davidpynes.github.io/Crux-Compiler/
